@@ -33,7 +33,9 @@ class IteratorToListAdapter<T>(private val iterator:Iterator<T>):List<T>
         override fun previousIndex():Int = nextElementIndex-1
     }
 
-    private val generator = object
+    private val generator = Generator()
+
+    private inner class Generator()
     {
         private val generatedElementsList = ArrayList<T>()
 
